@@ -1,0 +1,35 @@
+<div class="mb-3 row">
+  <div class="col-xs-3 col-sm-auto">
+    <form #form="ngForm" (submit)="onSubmit()">
+<input type="text" class="form-control mr-sm-2" placeholder="Keresés" name="city" [(ngModel)]="cityName">
+</form>
+  </div>
+</div>
+
+<table class="table align-middle mb-0 bg-red">
+<thead class="bg-light">
+  <tr>
+      <th scope="col">Város</th>
+      <th scope="col">Hőmérséklet</th>
+      <th scope="col"> Érzet</th>
+      <th scope="col"> Minimum</th>
+      <th scope="col">Max</th>
+      <th scope="col"> Nyomás</th>
+      <th scope="col">Páratartalom</th>
+
+  </tr>
+</thead>
+<tbody>
+  <tr *ngIf="weather">
+    <td>{{weather.name}}</td>
+    <td>{{weather.main.temp | number:'1.0-0'}}°C </td>
+    <td>{{weather.main.feels_like | number:'1.0-0'}}°C </td>
+    <td>{{weather.main.temp_min | number:'1.0-0'}}°C </td>
+    <td>{{weather.main.temp_max | number:'1.0-0'}}°C </td>
+    <td>{{weather.main.pressure}}</td>
+    <td>{{weather.main.humidity}}%</td>
+    <td></td>
+  </tr>
+</tbody>
+
+</table>
